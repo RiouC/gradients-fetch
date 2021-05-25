@@ -51,5 +51,7 @@ export const gradientReducer = (state, action) => {
         filteredGradient: filterList(state.gradient, action.payload),
         loading: false,
       }
+    default:
+      throw new Error(`Unsupported action type ${action.type} in gradientReducer`)
   }
 }

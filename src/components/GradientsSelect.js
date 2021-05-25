@@ -1,10 +1,12 @@
-import { uniqueTags as tags } from "../gradients"
+import { useGradient } from "../context/GradientContext"
 
-const GradientsSelect = (props) => {
-  const { filter, setFilter } = props
+const GradientsSelect = () => {
+  const { uniqueTag, filter, dispatch } = useGradient()
+
   const handleSelectChange = (e) => {
-    setFilter(e.target.value)
+    dispatch({ type: "FILTER", payload: e.target.value })
   }
+
   return (
     <div className="input-group mb-3">
       <label className="input-group-text" htmlFor="select">
@@ -17,7 +19,7 @@ const GradientsSelect = (props) => {
         onChange={handleSelectChange}
       >
         <option value="all">Tous</option>
-        {tags.map((el) => (
+        {uniqueTag.map((el) => (
           <option key={el} value={el}>
             {el}
           </option>

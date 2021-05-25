@@ -1,12 +1,14 @@
 import { useState } from "react"
-import { gradients as list } from "../gradients"
 import { ReactComponent as SvgToggle } from "bootstrap-icons/icons/arrow-clockwise.svg"
 import { ReactComponent as Next } from "bootstrap-icons/icons/arrow-right.svg"
 import { ReactComponent as Prev } from "bootstrap-icons/icons/arrow-left.svg"
+import { useGradient } from "../context/GradientContext"
 
 const GradientsHeader = (props) => {
   const { children } = props
-  const length = list.length
+  const { gradient } = useGradient()
+  const length = gradient.length
+  console.log(gradient)
 
   const chooseGradient = () => Math.floor(Math.random() * length)
 
@@ -22,7 +24,7 @@ const GradientsHeader = (props) => {
   }
 
   const style = {
-    backgroundImage: `linear-gradient(to right, ${list[randomGradient].start}, ${list[randomGradient].end})`
+    backgroundImage: `linear-gradient(to right, ${gradient[randomGradient].start}, ${gradient[randomGradient].end})`
   }
   return (
     <header className="text-center bg-dark text-white py-5 mb-5" style={style}>

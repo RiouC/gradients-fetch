@@ -8,6 +8,7 @@ const GradientsHeader = (props) => {
   const { children } = props
   const { gradient } = useGradient()
   const length = gradient.length
+  console.log(gradient)
 
   const chooseGradient = () => Math.floor(Math.random() * length)
 

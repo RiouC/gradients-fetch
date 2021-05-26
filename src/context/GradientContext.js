@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useEffect } from "react"
+import { createContext, useContext, useReducer, useEffect, Fragment } from "react"
 import { gradientReducer } from "../reducer/gradientReducer"
 import { useIsMounted } from "../hook/useIsMounted"
 
@@ -47,8 +47,14 @@ export const GradientContextProvider = ({ children }) => {
   }, [isMounted])
 
   return (
-    <GradientContext.Provider value={{ gradient, filter, uniqueTag, filteredGradient, loading, error, dispatch }}>
+    <Fragment>
+    {loading && <p>loading...</p>}
+    {error && <p>error...</p>}
+    {!loading &&
+    console.log(gradient) &&
+    <GradientContext.Provider value={{ gradient, filter, uniqueTag, filteredGradient, dispatch }}>
       {children}
-    </GradientContext.Provider>
+    </GradientContext.Provider>}
+    </Fragment>
   )
 }

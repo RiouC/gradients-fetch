@@ -7,7 +7,7 @@ const GradientsList = () => {
   return (
     <ul className="row list-unstyled">
       {filteredGradient.map(el => {
-        const { name, start, end, tags, id = [] } = el
+        const { name, start, end, tags = [], id } = el
         return (
           <Gradient
             key={id}

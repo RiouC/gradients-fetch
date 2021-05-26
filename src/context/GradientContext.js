@@ -1,6 +1,5 @@
-import { createContext, useContext, useReducer, useEffect, Fragment } from "react"
+import { createContext, useContext, useReducer, useEffect, Fragment, useRef } from "react"
 import { gradientReducer } from "../reducer/gradientReducer"
-import { useIsMounted } from "../hook/useIsMounted"
 
 const GradientContext = createContext()
 
@@ -18,9 +17,25 @@ export const GradientContextProvider = ({ children }) => {
   const init = { gradient: [], filter: "all", uniqueTag: [], filteredGradient: [], loading: false, error: "" }
   const [state, dispatch] = useReducer(gradientReducer, init)
   const { gradient, filter, uniqueTag, filteredGradient, loading, error } = state
-  const isMounted = useIsMounted()
+
+  const cancelRef = useRef(null)
+  const controllerRef = useRef(null)
 
   useEffect(() => {
+    cancelRef.current = false
+    controllerRef.current = new AbortController()
+    // mounts
+    console.log("I mounted")
+    return () => {
+      //unmounts
+      console.log("I unmount")
+      cancelRef.current = true
+      controllerRef.current.abort()
+    }
+  }, [])
+
+  useEffect(() => {
+    console.log(cancelRef)
     dispatch({ type: "FETCH_INIT" })
     fetch("https://gradients-api.herokuapp.com/gradients", {
       method: 'GET',
@@ -35,26 +50,28 @@ export const GradientContextProvider = ({ children }) => {
         return response.json()
       })
       .then(data => {
-        if (isMounted.current) {
+        if (!cancelRef.current) {
+          console.log("I get data")
+          console.log(data)
           dispatch({ type: "FETCH_SUCCESS", payload: data })
         }
       })
-      .catch(error => {
-        if (isMounted.current) {
+      .catch((error) => {
+        if (!cancelRef.current) {
+          console.log(error.message)
           dispatch({ type: "FETCH_FAILURE", payload: error.message })
         }
       })
-  }, [isMounted])
+  }, [])
 
   return (
     <Fragment>
-    {loading && <p>loading...</p>}
-    {error && <p>error...</p>}
-    {!loading &&
-    console.log(gradient) &&
-    <GradientContext.Provider value={{ gradient, filter, uniqueTag, filteredGradient, dispatch }}>
-      {children}
-    </GradientContext.Provider>}
-    </Fragment>
+      {loading && <p>loading...</p>}
+      {error && <p>error...</p>}
+      {!loading && console.log(gradient) &&
+        <GradientContext.Provider value={{ gradient, filter, uniqueTag, filteredGradient, dispatch }}>
+          {children}
+        </GradientContext.Provider>}
+    </Fragment >
   )
 }

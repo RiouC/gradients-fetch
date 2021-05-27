@@ -1,8 +1,7 @@
-import { createContext, useContext, useReducer, useEffect, Fragment } from "react"
+import { createContext, useContext, useReducer, useEffect, Fragment, useState } from "react"
 import { gradientReducer } from "../reducer/gradientReducer"
-import {useIsMounted} from "../hook/useIsMounted"
 
-export const GradientContext = createContext()
+const GradientContext = createContext()
 
 export const useGradient = () => {
   const context = useContext(GradientContext)
@@ -15,44 +14,39 @@ export const useGradient = () => {
 }
 
 export const GradientContextProvider = ({ children }) => {
-  const init = { gradient: [], filter: "all", uniqueTag: [], filteredGradient: [], loading: false, error: "" }
+  // FETCH
+  const init = { gradient: [], loading: false, error: "" }
   const [state, dispatch] = useReducer(gradientReducer, init)
-  const { gradient, filter, uniqueTag, filteredGradient, loading, error } = state
-
-  const isMounted = useIsMounted()
+  const { gradient, loading, error } = state
+  // FILTER
+  const [filter, setFilter] = useState("tous")
+  const changeFilter = (e) => {
+    setFilter(e.target.value)
+  }
 
   useEffect(() => {
-    dispatch({ type: "FETCH_INIT" })
-    fetch("https://gradients-api.herokuapp.com/gradients", {
-      method: 'GET',
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then(response => {
+    fetch("https://gradients-api.herokuapp.com/gradients")
+      .then((response) => {
+        dispatch({ type: "FETCH_INIT" })
         if (!response.ok) {
           throw new Error(`Something went wrong: ${response.statusText}`)
         }
         return response.json()
       })
-      .then(data => {
-        if (isMounted.current) {
+      .then((data) => {
           dispatch({ type: "FETCH_SUCCESS", payload: data })
-        }
       })
-      .catch(error => {
-        if (isMounted.current) {
+      .catch((error) => {
           dispatch({ type: "FETCH_FAILURE", payload: error.message })
-        }
       })
-  }, [isMounted])
+  }, [])
 
 
   return (
     <Fragment>
       {loading && <p>loading...</p>}
       {error && <p>error...</p>}
-      <GradientContext.Provider value={{ gradient, filter, uniqueTag, filteredGradient, dispatch }}>
+      <GradientContext.Provider value={{ gradient, filter, changeFilter }}>
         {children}
       </GradientContext.Provider>
     </Fragment >

@@ -9,7 +9,7 @@ export const gradientReducer = (state, action) => {
     case "FETCH_SUCCESS":
       return {
         ...state,
-        gradient: action.payload,
+        gradient: [...action.payload],
         loading: false,
       }
     case "FETCH_FAILURE":

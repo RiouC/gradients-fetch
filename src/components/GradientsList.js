@@ -17,14 +17,14 @@ const GradientsList = () => {
   return (
     <ul className="row list-unstyled">
       {filteredGradient.map(el => {
-        const { name, start, end, tags = [], id } = el
         return (
           <Gradient
-            key={id}
-            colorStart={start}
-            colorEnd={end}
-            name={name}
-            tags={tags}
+            key={el.id}
+            colorStart={el.start}
+            colorEnd={el.end}
+            name={el.name}
+            tags={el.tags}
+            id={el.id}
           />
         )
       })}

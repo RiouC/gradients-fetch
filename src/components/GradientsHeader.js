@@ -6,8 +6,8 @@ import { useGradient } from "../context/GradientContext"
 
 const GradientsHeader = (props) => {
   const { children } = props
-  const { gradient } = useGradient()
-  const length = gradient.length
+  const { gradients } = useGradient()
+  const length = gradients.length
 
   const chooseGradient = () => Math.floor(Math.random() * length)
 
@@ -23,7 +23,7 @@ const GradientsHeader = (props) => {
   }
 
   const style = {
-    backgroundImage: `linear-gradient(to right, ${gradient[randomGradient].start}, ${gradient[randomGradient].end})`
+    backgroundImage: `linear-gradient(to right, ${gradients[randomGradient].start}, ${gradients[randomGradient].end})`
   }
   return (
     <header className="text-center bg-dark text-white py-5 mb-5" style={style}>

@@ -2,9 +2,9 @@ import { useGradient } from "../context/GradientContext"
 import { allTags } from "../gradients"
 
 const GradientsSelect = () => {
-  const { gradient, filter, changeFilter } = useGradient()
+  const { gradients, filter, changeFilter } = useGradient()
 
-  const uniqueTag = allTags(gradient)
+  const uniqueTag = allTags(gradients)
 
   return (
     <div className="input-group mb-3">
@@ -17,7 +17,7 @@ const GradientsSelect = () => {
         value={filter}
         onChange={changeFilter}
       >
-        <option value="all">Tous</option>
+        <option value="tous">tous</option>
         {uniqueTag.map((el) => (
           <option key={el} value={el}>
             {el}

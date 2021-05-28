@@ -2,18 +2,17 @@ import Gradient from "./Gradient"
 import { useGradient } from "../context/GradientContext"
 
 const GradientsList = () => {
-  const { gradient, filter } = useGradient()
+  const { gradients, filter } = useGradient()
 
-  const filterGradient = (filter) => {
-    gradient.filter(el => {
-      if (filter === "tous") {
-        return true
-      }
-      return el.tags.includes(filter)
+  const filterGradients = (filter) => {
+    if (filter === "tous") {
+      return gradients
     }
-  )}
-
-  const filteredGradient = filterGradient(filter)
+    else {
+      return gradients.filter((gradient) => gradient.tags.includes(filter))
+    }
+  }
+  const filteredGradient = filterGradients(filter)
 
   return (
     <ul className="row list-unstyled">

@@ -1,15 +1,14 @@
 export const gradientReducer = (state, action) => {
   switch (action.type) {
-    case "FETCH_INIT":
+    case 'FETCH_INIT':
       return {
         ...state,
-        loading: true,
-        error: ""
+        loading:true
       }
     case "FETCH_SUCCESS":
       return {
         ...state,
-        gradient: [...action.payload],
+        gradients: action.payload,
         loading: false,
       }
     case "FETCH_FAILURE":

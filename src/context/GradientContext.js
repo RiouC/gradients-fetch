@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer, useEffect, useState } from "react"
+import { createContext, useContext, useReducer, useEffect, useState, Fragment } from "react"
 import { gradientReducer } from "../reducer/gradientReducer"
 import { useIsMounted } from "../hook/useIsMounted"
 
@@ -44,10 +44,11 @@ useEffect(()=>{
 },[isMounted])
   
   return (
+    <Fragment>
+    {error ? <p>error...</p> : 
     <GradientContext.Provider value={{ gradients, filter, changeFilter }}>
-      {loading && <p>loading...</p>}
-      {error && <p>error...</p>}
-      {!loading && children}
-    </GradientContext.Provider>
+      {loading ? <p>loading...</p> : children}
+    </GradientContext.Provider>}
+    </Fragment>
   )
 }

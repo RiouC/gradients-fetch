@@ -20,28 +20,35 @@ export const GradientContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(gradientReducer, init)
   const { gradients, loading, error } = state
   
-  // FILTER
-  const [filter, setFilter] = useState("tous")
-  const changeFilter = (e) => {
-    setFilter(e.target.value)
-  }
-  
   const isMounted = useIsMounted()
 
   const URL = 'https://gradients-api.herokuapp.com/gradients'
-useEffect(()=>{
-  dispatch({type:'FETCH_INIT'})
-  fetch(URL).then(response =>{
-    if(!response.ok){
-      throw new Error(`Something went wrong: ${response.statusText}`)
+  useEffect(() => {
+    dispatch({ type: "FETCH_INIT" })
+    fetch(URL)
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(`Something went wrong: ${response.statusText}`)
+        }
+        return response.json()
+      })
+      .then(data => {
+        if (isMounted.current) {
+          dispatch({ type: "FETCH_SUCCESS", payload: data })
+        }
+      })
+      .catch(error => {
+        if (isMounted.current) {
+          dispatch({ type: "FETCH_FAILURE", payload: error.message })
+        }
+      })
+  }, [isMounted])
+
+    // FILTER
+    const [filter, setFilter] = useState("tous")
+    const changeFilter = (e) => {
+      setFilter(e.target.value)
     }
-    return response.json()
-  }).then((result) =>{
-    dispatch({type:'FETCH_SUCCESS', payload:result})
-  }).catch(error =>{
-    dispatch({type:'FETCH_FAILURE', payload:error.message})
-  })
-},[isMounted])
   
   return (
     <Fragment>

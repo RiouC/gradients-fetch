@@ -6,7 +6,6 @@ import Footer from "./components/Footer"
 import { Switch, Route } from "react-router"
 
 function App() {
-
   return (
     <div className="App min-vh-100 d-flex flex-column">
       <Switch>

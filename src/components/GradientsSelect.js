@@ -1,12 +1,14 @@
+import { Fragment } from "react"
 import { useGradient } from "../context/GradientContext"
 import { allTags } from "../gradients"
 
 const GradientsSelect = () => {
-  const { gradients, filter, changeFilter } = useGradient()
+  const { gradients, filter, changeFilter, fav} = useGradient()
 
   const uniqueTag = allTags(gradients)
 
   return (
+    <Fragment>
     <div className="input-group mb-3">
       <label className="input-group-text" htmlFor="select">
         Filtrer par tag
@@ -25,6 +27,7 @@ const GradientsSelect = () => {
         ))}
       </select>
     </div>
+    </Fragment>
   )
 }
 

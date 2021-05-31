@@ -49,11 +49,18 @@ export const GradientContextProvider = ({ children }) => {
     const changeFilter = (e) => {
       setFilter(e.target.value)
     }
+
+    // FAVORITE
+    const [fav, setFav] = useState(JSON.parse(localStorage.getItem('favoriteGradients')) || [])
+    useEffect(() => {
+      localStorage.setItem("favoriteGradients", JSON.stringify(fav), [fav])
+    }
+    )
   
   return (
     <Fragment>
     {error ? <p>error...</p> : 
-    <GradientContext.Provider value={{ gradients, filter, changeFilter }}>
+    <GradientContext.Provider value={{ gradients, filter, changeFilter, fav, setFav }}>
       {loading ? <p>loading...</p> : children}
     </GradientContext.Provider>}
     </Fragment>

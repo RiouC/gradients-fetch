@@ -24,8 +24,8 @@ const Product = () => {
   const chooseID = Math.floor(Math.random() * listID.length)
 
   const pathHome = `/`
-  const pathPrev = `/product/${Number(id)-1}`
-  const pathNext = `/product/${Number(id)+1}`
+  const pathPrev = `/product/${listID[(listID.indexOf(Number(id))-1 + listID.length) % listID.length]}`
+  const pathNext = `/product/${listID[(listID.indexOf(Number(id))+1) % listID.length]}`
   const pathRandom = `/product/${Number(listID[chooseID])}`
 
   const gradient = gradients.find(el => el.id === Number(id))

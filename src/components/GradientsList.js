@@ -20,11 +20,7 @@ const GradientsList = () => {
         return (
           <Gradient
             key={el.id}
-            colorStart={el.start}
-            colorEnd={el.end}
-            name={el.name}
-            tags={el.tags}
-            id={el.id}
+            el={el}
           />
         )
       })}

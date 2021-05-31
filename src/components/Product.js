@@ -8,14 +8,25 @@ import { ReactComponent as Prev } from "bootstrap-icons/icons/arrow-left.svg"
 const Product = () => {
   const { id } = useParams()
   const { gradients, fav, toggleFav } = useGradient()
-  const length = gradients.length
+  
+  const allID = (list) => {
+    /* retourner la liste des id uniques */
+    let listTotal = []
+    for (let element of list) {
+      if ("id" in element) {
+        listTotal = listTotal.concat(element.id)
+      }
+    }
+    return listTotal
+  }
+  const listID = allID(gradients)
 
-  const chooseGradient = Math.floor(Math.random() * length)
+  const chooseID = Math.floor(Math.random() * listID.length)
 
   const pathHome = `/`
-  const pathPrev = `/product/${Number(id) === 1 ? length : Number(id) - 1}`
-  const pathNext = `/product/${Number(id) === length ? 1 : Number(id) + 1}`
-  const pathRandom = `/product/${Number(chooseGradient)}`
+  const pathPrev = `/product/${Number(id)-1}`
+  const pathNext = `/product/${Number(id)+1}`
+  const pathRandom = `/product/${Number(listID[chooseID])}`
 
   const gradient = gradients.find(el => el.id === Number(id))
 

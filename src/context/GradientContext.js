@@ -12,7 +12,7 @@ export const GradientContextProvider = ({ children }) => {
   
   const isMounted = useIsMounted()
 
-  const URL = 'https://gradients-api.herokuapp.com/gradients'
+  const URL = 'https://api-gradients.herokuapp.com/gradients'
   useEffect(() => {
     dispatch({ type: "FETCH_INIT" })
     fetch(URL)
@@ -50,9 +50,10 @@ export const GradientContextProvider = ({ children }) => {
       }
     }
     useEffect(() => {
-      localStorage.setItem("favoriteGradients", JSON.stringify(fav), [fav])
-    }
-    )
+      localStorage.setItem("favoriteGradients", JSON.stringify(fav))
+    }, [fav])
+
+    // ADDING
   
   return (
     <Fragment>

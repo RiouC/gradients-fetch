@@ -20,8 +20,8 @@ const Gradient = ({ el }) => {
         <GradientPill colorStart={el.start} colorEnd={el.end} />
         <GradientTitle>{el.name}</GradientTitle>
         {fav.some(elem => elem === el.id) ? 
-          <button value={el.id} type="button" className="btn text-danger" onClick={toggleFav}>♥</button> : 
-          <button value={el.id} type="button" className="btn" onClick={toggleFav}>♡</button>}
+          <button value={el.id} type="button" aria-label="remove favorite" className="btn text-danger" onClick={toggleFav}>♥</button> : 
+          <button value={el.id} type="button" aria-label="add to favorite" className="btn" onClick={toggleFav}>♡</button>}
         <GradientCode colorStart={el.start} colorEnd={el.end} />
         <GradientTags tags={el.tags} />
       </div>

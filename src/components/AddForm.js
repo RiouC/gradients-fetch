@@ -1,19 +1,74 @@
-import {  useState } from "react"
-// import { useGradient } from "../hook/useContext"
+import { useState } from "react"
+import { useIsMounted } from "../hook/useIsMounted"
+import { useGradient } from "../hook/useGradient"
 
 const AddForm = () => {
-  // const {gradients, dispatch} = useGradient()
-
-  const [start, setStart] = useState('rgb(0,0,0)')
-  const [end, setEnd] = useState('rgb(0, 0, 0)')
+  const {dispatch} = useGradient()
+const isMounted = useIsMounted()
+  const [start, setStart] = useState('#000000')
+  const [end, setEnd] = useState('#000000')
   const linearGradient = `linear-gradient(to right, ${start} , ${end})`
-  const tagList = ["gris", "vert", "bleu", "violet", "rose", "jaune", "orange", "fuchsia", "mauve", "rouge", "noir", "blanc"]
+  const tagList = [
+    'gris',
+    'vert',
+    'bleu',
+    'violet',
+    'rose',
+    'jaune',
+    'orange',
+    'fuchsia',
+    'mauve',
+    'rouge',
+    'noir',
+    'blanc',
+  ]
+const [tagElList, setTagElList] = useState([])
+
+const handleCheck = (event) => {
+    if (tagElList.some(elem => elem === event.target.value)) {
+      setTagElList(tagElList.filter(elem => elem !== event.target.value))
+    } else {
+      setTagElList([...tagElList, event.target.value])
+    }
+  }
+
+
+  const handleSubmitForm = (event) => {
+  event.preventDefault()
+  fetch(`https://api-gradients.herokuapp.com/gradients`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name: event.target.elements.name.value,
+      start: event.target.elements.start.value,
+      end: event.target.elements.end.value, 
+      tags: tagElList
+    }),
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`Something went wrong: ${response.textStatus}`)
+      }
+      return response.json()
+    })
+    .then(result => {
+      if (isMounted.current) {
+        
+      }
+    })
+    .catch(error => {
+      if (isMounted.current) {
+        dispatch({ type: "FETCH_FAILURE", payload: error.message })
+      }
+    })
+  event.target.reset()
+  }
 
   return (
 
-    <form className="mb-4"
-    // onSubmit={dispatch}
-    >
+    <form className="mb-4" onSubmit={handleSubmitForm}>
   <div className="input-group mb-4">
     <label htmlFor="name" className="input-group-text">Nom</label>
     <input type="text" className="form-control" id="name" aria-describedby="name" placeholder="Saisir le nom" required/>
@@ -42,7 +97,7 @@ const AddForm = () => {
     {tagList.map((tag) => {
       return (
         <div className="form-check form-check-inline mb-4" key={tag}>
-      <input className="form-check-input" type="checkbox" id="tags" value={tag}/>
+      <input className="form-check-input" type="checkbox" id="tags" value={tag} onChange={handleCheck}/>
       <label className="form-check-label" htmlFor="tags">{tag}</label>
       </div>)
     })}

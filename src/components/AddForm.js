@@ -18,9 +18,10 @@ const AddForm = () => {
     <label htmlFor="name" className="input-group-text">Nom</label>
     <input type="text" className="form-control" id="name" aria-describedby="name" placeholder="Saisir le nom" required/>
   </div>
-  <div className="d-flex flex-row mb-4">
-  <div className="d-flex flex-column justify-content-around">
-  <div className="input-group">
+
+  <div className="row">
+    <div className="col-md-9 mb-4">
+  <div className="input-group mb-4">
     <label htmlFor="start" className="input-group-text">Couleur 1</label>
     <input onChange={(e) => setStart(e.target.value)} value={start} type="color" className="form-control" id="start" aria-describedby="start" placeholder="Saisir la couleur de gauche" style={{height: "2.5rem", width:"10rem"}}/>
   </div>
@@ -29,10 +30,12 @@ const AddForm = () => {
     <input onChange={(e) => setEnd(e.target.value)} value={end} type="color" className="form-control" id="end" aria-describedby="end" placeholder="Saisir la couleur de droite" style={{height: "2.5rem", width:"10rem"}}/>
   </div>
   </div>
+  <div className="col-md-3 mb-4">
   <div
       className="card-gradient mx-auto rounded-pill"
       style={{ backgroundImage: linearGradient }}
     ></div>
+    </div>
   </div>
   
   

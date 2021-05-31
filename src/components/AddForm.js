@@ -2,7 +2,7 @@ import {  useState } from "react"
 import { useGradient } from "../context/GradientContext"
 
 const AddForm = () => {
-  const {gradients, dispatch} = useGradient()
+  // const {gradients, dispatch} = useGradient()
 
   const [start, setStart] = useState('rgb(0,0,0)')
   const [end, setEnd] = useState('rgb(0, 0, 0)')

@@ -3,7 +3,7 @@ import { useGradient } from "../context/GradientContext"
 import { allTags } from "../gradients"
 
 const GradientsSelect = () => {
-  const { gradients, filter, changeFilter, fav} = useGradient()
+  const { gradients, filter, changeFilter} = useGradient()
 
   const uniqueTag = allTags(gradients)
 

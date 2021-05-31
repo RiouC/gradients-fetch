@@ -18,19 +18,19 @@ const AddForm = () => {
     <label htmlFor="name" className="input-group-text">Nom</label>
     <input type="text" className="form-control" id="name" aria-describedby="name" placeholder="Saisir le nom" required/>
   </div>
-  <div className="d-flex flex-row justify-content-between mb-4">
+  <div className="d-flex flex-row mb-4">
   <div className="d-flex flex-column justify-content-around">
   <div className="input-group">
     <label htmlFor="start" className="input-group-text">Couleur 1</label>
-    <input onChange={(e) => setStart(e.target.value)} value={start} type="color" className="form-control" id="start" aria-describedby="start" placeholder="Saisir la couleur de gauche" style={{height: "2.5rem", width:"20rem"}}/>
+    <input onChange={(e) => setStart(e.target.value)} value={start} type="color" className="form-control" id="start" aria-describedby="start" placeholder="Saisir la couleur de gauche" style={{height: "2.5rem", width:"10rem"}}/>
   </div>
   <div className="input-group">
     <label htmlFor="end" className="input-group-text">Couleur 2</label>
-    <input onChange={(e) => setEnd(e.target.value)} value={end} type="color" className="form-control" id="end" aria-describedby="end" placeholder="Saisir la couleur de droite" style={{height: "2.5rem", width:"20rem"}}/>
+    <input onChange={(e) => setEnd(e.target.value)} value={end} type="color" className="form-control" id="end" aria-describedby="end" placeholder="Saisir la couleur de droite" style={{height: "2.5rem", width:"10rem"}}/>
   </div>
   </div>
   <div
-      className="card-gradient rounded-pill m-4"
+      className="card-gradient mx-auto rounded-pill"
       style={{ backgroundImage: linearGradient }}
     ></div>
   </div>

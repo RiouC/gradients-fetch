@@ -8,7 +8,7 @@ export const GradientContextProvider = ({ children }) => {
   // FETCH
   const init = { gradients: [], loading: true, error: "" }
   const [state, dispatch] = useReducer(gradientReducer, init)
-  const { gradients, loading, error } = state
+  const { gradients, loading, error, message } = state
   
   const isMounted = useIsMounted()
 
@@ -58,7 +58,7 @@ export const GradientContextProvider = ({ children }) => {
   return (
     <Fragment>
     {error ? <p>error...</p> : 
-    <GradientContext.Provider value={{ gradients, dispatch, filter, changeFilter, fav, toggleFav }}>
+    <GradientContext.Provider value={{ gradients, message, dispatch, filter, changeFilter, fav, toggleFav }}>
       {loading ? <p>loading...</p> : children}
     </GradientContext.Provider>}
     </Fragment>

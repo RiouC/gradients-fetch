@@ -3,7 +3,7 @@ import { useIsMounted } from "../hook/useIsMounted"
 import { useGradient } from "../hook/useGradient"
 
 const AddForm = () => {
-  const {dispatch} = useGradient()
+  const {message, dispatch} = useGradient()
 const isMounted = useIsMounted()
   const [start, setStart] = useState('#000000')
   const [end, setEnd] = useState('#000000')
@@ -55,7 +55,7 @@ const handleCheck = (event) => {
     })
     .then(result => {
       if (isMounted.current) {
-        
+        dispatch({type : "ADD_SUCCESS", payload : result})
       }
     })
     .catch(error => {
@@ -97,13 +97,14 @@ const handleCheck = (event) => {
     {tagList.map((tag) => {
       return (
         <div className="form-check form-check-inline mb-4" key={tag}>
-      <input className="form-check-input" type="checkbox" id="tags" value={tag} onChange={handleCheck}/>
-      <label className="form-check-label" htmlFor="tags">{tag}</label>
+      <input className="form-check-input" type="checkbox" id={tag} value={tag} onChange={handleCheck}/>
+      <label className="form-check-label" htmlFor={tag}>{tag}</label>
       </div>)
     })}
 
 <div className="text-start">
-  <button type="submit" className="btn btn-outline-secondary">Ajouter</button>
+  <button type="submit" className="btn btn-outline-secondary mb-4">Ajouter</button>
+  {message ? <p className="alert alert-success mb-4">Le gradient a bien été ajouté. Veuillez réactualiser la page pour le voir apparaître dans la liste.</p> : ''}
   </div>
 </form>
   

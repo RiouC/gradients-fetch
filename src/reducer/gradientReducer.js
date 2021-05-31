@@ -3,7 +3,8 @@ export const gradientReducer = (state, action) => {
     case 'FETCH_INIT':
       return {
         ...state,
-        loading:true
+        loading:true,
+message: false
       }
     case "FETCH_SUCCESS":
       return {
@@ -16,6 +17,12 @@ export const gradientReducer = (state, action) => {
         ...state,
         loading: false,
         error: action.payload
+      }
+      case "ADD_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        message: true
       }
     default:
       throw new Error(`Unsupported action type ${action.type} in gradientReducer`)

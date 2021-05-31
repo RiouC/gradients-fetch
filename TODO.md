@@ -1,32 +1,37 @@
 
 # Table of Contents
 
-1.  [Critères](#orga9e1701)
-    1.  [Rendu sur GitHub et déploiement sur Netlify](#org33e6800)
-    2.  [useReducer avec des actions FETCH\_INIT, FETCH\_SUCCESS, FETCH\_FAILURE](#org4abbac2)
-    3.  [GradientsContext est mis en place correctement](#org8dc1988)
-    4.  [la structure des routes est respectée et fonctionne correctement](#org4383b3e)
-    5.  [la navigation (Accueil, Précédent, Suivant) depuis routes *gradient*:id fonctionne correctement](#orga630b76)
-    6.  [le bouton “Plein écran” fonctionne](#orgf7505e5)
-    7.  [les gradients viennent depuis l’API](#org69f739f)
-    8.  [il n’y a pas de warning depuis la console dans VSCode, ni dans la console du navigateur](#orgbbcc900)
-2.  [Bonus](#org18d3916)
-    1.  [Ajoute gradient et stocke dans localstorage](#org5654bd0)
-    2.  [API Heroku perso](#org5a96b49)
+1.  [Critères](#orge3e48e7)
+    1.  [Rendu sur GitHub et déploiement sur Netlify](#orgbc7627f)
+    2.  [useReducer avec des actions FETCH\_INIT, FETCH\_SUCCESS, FETCH\_FAILURE](#orga209020)
+    3.  [GradientsContext est mis en place correctement](#orgf1a96e0)
+    4.  [la structure des routes est respectée et fonctionne correctement](#orge4d8658)
+    5.  [la navigation (Accueil, Précédent, Suivant) depuis routes *gradient*:id fonctionne correctement](#org6ab3630)
+    6.  [le bouton “Plein écran” fonctionne](#org0e442c6)
+    7.  [les gradients viennent depuis l’API](#org1b79792)
+    8.  [il n’y a pas de warning depuis la console dans VSCode, ni dans la console du navigateur](#org4549f44)
+2.  [Bonus](#org663e0ef)
+    1.  [API Heroku perso](#orgc5b2670)
+    2.  [Ajoute gradient et stocke dans l'API](#org4bf135b)
+    3.  [Gère les trous dans la liste d'ids](#org7928ead)
+    4.  [navigation au clavier](#org22069d9)
+    5.  [Darkmode](#orgcc3c7cd)
+    6.  [Langue FR/EN](#orgc7c96bd)
+    7.  [schema.org](#orgdbed5f2)
 
 
 
-<a id="orga9e1701"></a>
+<a id="orge3e48e7"></a>
 
 # Critères
 
 
-<a id="org33e6800"></a>
+<a id="orgbc7627f"></a>
 
 ## DONE Rendu sur GitHub et déploiement sur Netlify
 
 
-<a id="org4abbac2"></a>
+<a id="orga209020"></a>
 
 ## DONE useReducer avec des actions FETCH\_INIT, FETCH\_SUCCESS, FETCH\_FAILURE
 
@@ -35,47 +40,72 @@
 -   [X] FETCH\_FAILURE
 
 
-<a id="org8dc1988"></a>
+<a id="orgf1a96e0"></a>
 
 ## DONE GradientsContext est mis en place correctement
 
 
-<a id="org4383b3e"></a>
+<a id="orge4d8658"></a>
 
 ## DONE la structure des routes est respectée et fonctionne correctement
 
 
-<a id="orga630b76"></a>
+<a id="org6ab3630"></a>
 
 ## DONE la navigation (Accueil, Précédent, Suivant) depuis routes *gradient*:id fonctionne correctement
 
 
-<a id="orgf7505e5"></a>
+<a id="org0e442c6"></a>
 
 ## DONE le bouton “Plein écran” fonctionne
 
 
-<a id="org69f739f"></a>
+<a id="org1b79792"></a>
 
 ## DONE les gradients viennent depuis l’API
 
 
-<a id="orgbbcc900"></a>
+<a id="org4549f44"></a>
 
-## TODO il n’y a pas de warning depuis la console dans VSCode, ni dans la console du navigateur
+## DONE il n’y a pas de warning depuis la console dans VSCode, ni dans la console du navigateur
 
 
-<a id="org18d3916"></a>
+<a id="org663e0ef"></a>
 
 # Bonus
 
 
-<a id="org5654bd0"></a>
+<a id="orgc5b2670"></a>
 
-## TODO Ajoute gradient et stocke dans localstorage
+## DONE API Heroku perso
 
 
-<a id="org5a96b49"></a>
+<a id="org4bf135b"></a>
 
-## TODO API Heroku perso
+## DONE Ajoute gradient et stocke dans l'API
+
+
+<a id="org7928ead"></a>
+
+## DONE Gère les trous dans la liste d'ids
+
+
+<a id="org22069d9"></a>
+
+## DONE navigation au clavier
+
+
+<a id="orgcc3c7cd"></a>
+
+## TODO Darkmode
+
+
+<a id="orgc7c96bd"></a>
+
+## TODO Langue FR/EN
+
+
+<a id="orgdbed5f2"></a>
+
+## TODO schema.org
 

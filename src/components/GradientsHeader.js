@@ -31,19 +31,22 @@ const GradientsHeader = (props) => {
   return (
     <header className="text-center bg-dark text-white py-5 mb-5" style={style}>
       {children}
-      <Link to={pathHome} className="btn btn-outline-light m-1"><Home /></Link>
+      <Link to={pathHome} className="btn btn-outline-light m-1 key" data-key="54">
+        <Home />
+      </Link>
       <button
         aria-label="Clicker pour afficher le dégradé précédant"
         type="button"
-        className="btn btn-outline-light m-1"
+        className="btn btn-outline-light m-1 key"
         onClick={handlePrevClick}
+        data-key="37"
       >
         <Prev />
       </button>
       <button
         aria-label="Clicker pour changer le dégradé"
         type="button"
-        className="btn btn-outline-light m-1"
+        className="btn btn-outline-light m-1 key" data-key="48"
         onClick={handleReloadClick}
       >
         <SvgToggle />
@@ -51,8 +54,9 @@ const GradientsHeader = (props) => {
       <button
         aria-label="Clicker pour afficher le dégradé suivant"
         type="button"
-        className="btn btn-outline-light m-1"
+        className="btn btn-outline-light m-1 key"
         onClick={handleNextClick}
+        data-key="39"
       >
         <Next />
       </button>

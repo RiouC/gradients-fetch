@@ -4,8 +4,10 @@ import { ReactComponent as Home } from "bootstrap-icons/icons/house.svg"
 import { ReactComponent as SvgToggle } from "bootstrap-icons/icons/arrow-clockwise.svg"
 import { ReactComponent as Next } from "bootstrap-icons/icons/arrow-right.svg"
 import { ReactComponent as Prev } from "bootstrap-icons/icons/arrow-left.svg"
+// import useArrowKeyNavigationHook from "react-arrow-key-navigation-hook";
 
 const Product = () => {
+  // const parentRef = useArrowKeyNavigationHook({ selectors: "button" });
   const { id } = useParams()
   const { gradients, fav, toggleFav } = useGradient()
   
@@ -44,8 +46,24 @@ const Product = () => {
         <div>
           <h1 className="text-white display-1">{gradient.name}</h1>
           {fav.some(elem => elem === gradient.id) ? 
-          <button value={gradient.id} type="button" className="btn text-danger" onClick={toggleFav}>♥</button> : 
-          <button value={gradient.id} type="button" className="btn" onClick={toggleFav}>♡</button>}
+           <button
+             value={gradient.id}
+             type="button"
+             className="btn text-danger key"
+             onClick={toggleFav}
+             data-key="70"
+           >
+             ♥
+           </button> :
+           <button
+             value={gradient.id}
+             type="button"
+             className="btn key"
+             onClick={toggleFav}
+             data-key="70"
+           >
+             ♡
+           </button>}
           <div className="bg-white shadow p-2 rounded">
             <code>{code}</code>
           </div>
@@ -54,10 +72,10 @@ const Product = () => {
         </div> :
         <p className="text-white">Oups, ce gradient n'existe pas...</p>}
         <nav className="m-3">
-            <Link to={pathHome} className="btn btn-outline-light m-1"><Home /></Link>
-            <Link to={pathPrev} className="btn btn-outline-light m-1"><Prev/></Link>
-            <Link to={pathRandom} className="btn btn-outline-light m-1"><SvgToggle /></Link>
-            <Link to={pathNext} className="btn btn-outline-light m-1"><Next/></Link>
+            <Link to={pathHome} className="btn btn-outline-light m-1 key" data-key="54"><Home /></Link>
+            <Link to={pathPrev} className="btn btn-outline-light m-1 key" data-key="37"><Prev/></Link>
+            <Link to={pathRandom} className="btn btn-outline-light m-1 key" data-key="48"><SvgToggle /></Link>
+            <Link to={pathNext} className="btn btn-outline-light m-1 key" data-key="39"><Next/></Link>
             </nav>
         </div>
       </div> 

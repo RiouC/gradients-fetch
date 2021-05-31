@@ -1,13 +1,16 @@
 import { useState } from "react"
+import { ReactComponent as Home } from "bootstrap-icons/icons/house.svg"
 import { ReactComponent as SvgToggle } from "bootstrap-icons/icons/arrow-clockwise.svg"
 import { ReactComponent as Next } from "bootstrap-icons/icons/arrow-right.svg"
 import { ReactComponent as Prev } from "bootstrap-icons/icons/arrow-left.svg"
 import { useGradient } from "../context/GradientContext"
+import { Link } from "react-router-dom"
 
 const GradientsHeader = (props) => {
   const { children } = props
   const { gradients } = useGradient()
   const length = gradients.length
+  const pathHome = `/`
 
   const chooseGradient = () => Math.floor(Math.random() * length)
 
@@ -28,6 +31,7 @@ const GradientsHeader = (props) => {
   return (
     <header className="text-center bg-dark text-white py-5 mb-5" style={style}>
       {children}
+      <Link to={pathHome} className="btn btn-outline-light m-1"><Home /></Link>
       <button
         aria-label="Clicker pour afficher le dégradé précédant"
         type="button"

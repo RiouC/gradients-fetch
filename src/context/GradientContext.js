@@ -52,6 +52,13 @@ export const GradientContextProvider = ({ children }) => {
 
     // FAVORITE
     const [fav, setFav] = useState(JSON.parse(localStorage.getItem('favoriteGradients')) || [])
+    const toggleFav = (event) => {
+      if (fav.some(elem => elem === Number(event.target.value))) {
+        setFav(fav.filter(elem => elem !== Number(event.target.value)))
+      } else {
+        setFav([...fav, Number(event.target.value)])
+      }
+    }
     useEffect(() => {
       localStorage.setItem("favoriteGradients", JSON.stringify(fav), [fav])
     }
@@ -60,7 +67,7 @@ export const GradientContextProvider = ({ children }) => {
   return (
     <Fragment>
     {error ? <p>error...</p> : 
-    <GradientContext.Provider value={{ gradients, filter, changeFilter, fav, setFav }}>
+    <GradientContext.Provider value={{ gradients, dispatch, filter, changeFilter, fav, toggleFav }}>
       {loading ? <p>loading...</p> : children}
     </GradientContext.Provider>}
     </Fragment>

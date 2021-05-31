@@ -15,7 +15,7 @@ const GradientsList = () => {
   const filteredGradient = filterGradients(filter)
 
   return (
-    <ul className="row list-unstyled">
+    <ul className="row list-unstyled mb-0">
       {filteredGradient.map(el => {
         return (
           <Gradient

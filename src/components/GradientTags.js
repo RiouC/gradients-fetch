@@ -1,4 +1,4 @@
-import { useGradient } from "../context/GradientContext"
+import { useGradient } from "../hook/useGradient"
 
 const GradientTags = ({ tags }) => {
   const { filter, changeFilter } = useGradient()

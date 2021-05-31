@@ -1,18 +1,8 @@
-import { createContext, useContext, useReducer, useEffect, useState, Fragment } from "react"
+import { createContext, useReducer, useEffect, useState, Fragment } from "react"
 import { gradientReducer } from "../reducer/gradientReducer"
 import { useIsMounted } from "../hook/useIsMounted"
 
 export const GradientContext = createContext()
-
-export const useGradient = () => {
-  const context = useContext(GradientContext)
-  if (context === undefined) {
-    throw new Error(
-      `It seems that you are trying to use GradientContext outside of its provider`
-    )
-  }
-  return context
-}
 
 export const GradientContextProvider = ({ children }) => {
   // FETCH

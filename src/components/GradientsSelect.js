@@ -1,5 +1,5 @@
 import { Fragment } from "react"
-import { useGradient } from "../context/GradientContext"
+import { useGradient } from "../hook/useGradient"
 import { allTags } from "../gradients"
 
 const GradientsSelect = () => {
@@ -16,6 +16,7 @@ const GradientsSelect = () => {
       <select
         className="form-select"
         id="select"
+
         value={filter}
         onChange={changeFilter}
       >

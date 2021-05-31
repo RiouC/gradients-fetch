@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom"
-import { useGradient } from "../context/GradientContext"
+import { useGradient } from "../hook/useGradient"
 import { ReactComponent as Home } from "bootstrap-icons/icons/house.svg"
 import { ReactComponent as SvgToggle } from "bootstrap-icons/icons/arrow-clockwise.svg"
 import { ReactComponent as Next } from "bootstrap-icons/icons/arrow-right.svg"

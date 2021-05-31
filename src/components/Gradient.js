@@ -3,7 +3,7 @@ import GradientPill from "./GradientPill"
 import GradientCode from "./GradientCode"
 import GradientTags from "./GradientTags"
 import { Link } from "react-router-dom"
-import { useGradient } from "../context/GradientContext"
+import { useGradient } from "../hook/useGradient"
 
 const Gradient = ({ el }) => {
   const productURL = `/product/${el.id}`

@@ -1,5 +1,5 @@
 import Gradient from "./Gradient"
-import { useGradient } from "../context/GradientContext"
+import { useGradient } from "../hook/useGradient"
 
 const GradientsList = () => {
   const { gradients, filter } = useGradient()

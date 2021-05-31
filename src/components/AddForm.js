@@ -1,5 +1,5 @@
 import {  useState } from "react"
-// import { useGradient } from "../context/GradientContext"
+// import { useGradient } from "../hook/useContext"
 
 const AddForm = () => {
   // const {gradients, dispatch} = useGradient()

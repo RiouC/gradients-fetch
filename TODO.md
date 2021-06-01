@@ -1,40 +1,40 @@
 
 # Table of Contents
 
-1.  [Critères](#org607b65f)
-    1.  [Rendu sur GitHub et déploiement sur Netlify](#org8a2396a)
-    2.  [useReducer avec des actions FETCH\_INIT, FETCH\_SUCCESS, FETCH\_FAILURE](#org46fb4d9)
-    3.  [GradientsContext est mis en place correctement](#orge36eb5c)
-    4.  [la structure des routes est respectée et fonctionne correctement](#org1b39102)
-    5.  [la navigation (Accueil, Précédent, Suivant) depuis routes *gradient*:id fonctionne correctement](#orgb25165a)
-    6.  [le bouton “Plein écran” fonctionne](#orga0c20ec)
-    7.  [les gradients viennent depuis l’API](#orgaafe849)
-    8.  [il n’y a pas de warning depuis la console dans VSCode, ni dans la console du navigateur](#orga153e63)
-2.  [Bonus](#orgd6d10d3)
-    1.  [API Heroku perso](#orgf99142d)
-    2.  [Ajoute gradient et stocke dans l'API](#org8de1ad2)
-    3.  [Gère les trous dans la liste d'ids](#org8f63656)
-    4.  [navigation au clavier](#org02cdf4c)
-    5.  [Darkmode](#orgb71f48e)
-    6.  [Langue FR/EN](#org7a2eb1d)
-    7.  [Footer Raphael](#orgb1ed3ca)
-    8.  [aria-label & schema.org (https://schema.org/)](#org3da1193)
-    9.  [Diagramme des components (https://app.diagrams.net/)](#orgd6b3235)
-    10. [Doc (README.md)](#org4de5f4c)
+1.  [Critères](#orgcd48fe8)
+    1.  [Rendu sur GitHub et déploiement sur Netlify](#orgd3d1a64)
+    2.  [useReducer avec des actions FETCH\_INIT, FETCH\_SUCCESS, FETCH\_FAILURE](#org74c378d)
+    3.  [GradientsContext est mis en place correctement](#org74486d9)
+    4.  [la structure des routes est respectée et fonctionne correctement](#org39fedee)
+    5.  [la navigation (Accueil, Précédent, Suivant) depuis routes *gradient*:id fonctionne correctement](#orga88b1ed)
+    6.  [le bouton “Plein écran” fonctionne](#orgc9180ce)
+    7.  [les gradients viennent depuis l’API](#org71d81f0)
+    8.  [il n’y a pas de warning depuis la console dans VSCode, ni dans la console du navigateur](#orgb856c82)
+2.  [Bonus](#org7475005)
+    1.  [API Heroku perso](#org5f9ffef)
+    2.  [Ajoute gradient et stocke dans l'API](#org246910b)
+    3.  [Gère les trous dans la liste d'ids](#org8c44bdf)
+    4.  [navigation au clavier](#org6758e7e)
+    5.  [Darkmode](#org110f864)
+    6.  [Langue FR/EN](#org57c4e77)
+    7.  [Footer Raphael](#orgb183293)
+    8.  [aria-label & schema.org (https://schema.org/)](#org1c3450f)
+    9.  [Diagramme des components (https://app.diagrams.net/)](#orgfe7102d)
+    10. [Doc (README.md)](#org1a2f80b)
 
 
 
-<a id="org607b65f"></a>
+<a id="orgcd48fe8"></a>
 
 # Critères
 
 
-<a id="org8a2396a"></a>
+<a id="orgd3d1a64"></a>
 
 ## DONE Rendu sur GitHub et déploiement sur Netlify
 
 
-<a id="org46fb4d9"></a>
+<a id="org74c378d"></a>
 
 ## DONE useReducer avec des actions FETCH\_INIT, FETCH\_SUCCESS, FETCH\_FAILURE
 
@@ -43,87 +43,87 @@
 -   [X] FETCH\_FAILURE
 
 
-<a id="orge36eb5c"></a>
+<a id="org74486d9"></a>
 
 ## DONE GradientsContext est mis en place correctement
 
 
-<a id="org1b39102"></a>
+<a id="org39fedee"></a>
 
 ## DONE la structure des routes est respectée et fonctionne correctement
 
 
-<a id="orgb25165a"></a>
+<a id="orga88b1ed"></a>
 
 ## DONE la navigation (Accueil, Précédent, Suivant) depuis routes *gradient*:id fonctionne correctement
 
 
-<a id="orga0c20ec"></a>
+<a id="orgc9180ce"></a>
 
 ## DONE le bouton “Plein écran” fonctionne
 
 
-<a id="orgaafe849"></a>
+<a id="org71d81f0"></a>
 
 ## DONE les gradients viennent depuis l’API
 
 
-<a id="orga153e63"></a>
+<a id="orgb856c82"></a>
 
 ## DONE il n’y a pas de warning depuis la console dans VSCode, ni dans la console du navigateur
 
 
-<a id="orgd6d10d3"></a>
+<a id="org7475005"></a>
 
 # Bonus
 
 
-<a id="orgf99142d"></a>
+<a id="org5f9ffef"></a>
 
 ## DONE API Heroku perso
 
 
-<a id="org8de1ad2"></a>
+<a id="org246910b"></a>
 
 ## DONE Ajoute gradient et stocke dans l'API
 
 
-<a id="org8f63656"></a>
+<a id="org8c44bdf"></a>
 
 ## DONE Gère les trous dans la liste d'ids
 
 
-<a id="org02cdf4c"></a>
+<a id="org6758e7e"></a>
 
 ## DONE navigation au clavier
 
 
-<a id="orgb71f48e"></a>
+<a id="org110f864"></a>
 
 ## DONE Darkmode
 
 
-<a id="org7a2eb1d"></a>
+<a id="org57c4e77"></a>
 
 ## DONE Langue FR/EN
 
 
-<a id="orgb1ed3ca"></a>
+<a id="orgb183293"></a>
 
 ## DONE Footer Raphael
 
 
-<a id="org3da1193"></a>
+<a id="org1c3450f"></a>
 
-## TODO aria-label & schema.org (<https://schema.org/>)
-
-
-<a id="orgd6b3235"></a>
-
-## TODO Diagramme des components (<https://app.diagrams.net/>)
+## DONE aria-label & schema.org (<https://schema.org/>)
 
 
-<a id="org4de5f4c"></a>
+<a id="orgfe7102d"></a>
 
-## TODO Doc (README.md)
+## DONE Diagramme des components (<https://app.diagrams.net/>)
+
+
+<a id="org1a2f80b"></a>
+
+## DONE Doc (README.md)
 

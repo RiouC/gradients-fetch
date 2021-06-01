@@ -1,7 +1,6 @@
 import { createContext, useReducer, useEffect, useState, Fragment } from "react"
 import { gradientReducer } from "../reducer/gradientReducer"
 import { useIsMounted } from "../hook/useIsMounted"
-
 export const GradientContext = createContext()
 
 export const GradientContextProvider = ({ children }) => {

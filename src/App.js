@@ -5,10 +5,13 @@ import Product from "./components/Product"
 import Footer from "./components/Footer"
 import { Switch, Route, Link } from "react-router-dom"
 import AddForm from "./components/AddForm"
+import { useGlobalSettings } from "./hook/useGlobalSettings";
 
 function App() {
+  const { darkMode } = useGlobalSettings();
+  const darkModeClass = darkMode ? "bg-dark text-light" : "";
   return (
-    <div className="App min-vh-100 d-flex flex-column">
+    <div className={`App min-vh-100 d-flex flex-column ${darkModeClass}`}>
       <Switch>
 
       <Route exact path="/">
@@ -17,7 +20,7 @@ function App() {
         <p className="tagline">Ultime collection de plus beaux dégradés</p>
       </GradientsHeader>
       <main className="container mb-4" style={{ position: 'relative' }}>
-      <Link to="/add" className="btn btn-outline-secondary mb-4 text-decoration-none text-end" style={{ position: 'absolute', right: `15px`, top: `25px` }}>Ajouter</Link>
+        <Link to="/add" className={`btn btn-outline-secondary mb-4 text-decoration-none text-end ${darkModeClass}`} style={{ position: 'absolute', right: `15px`, top: `25px` }}>Ajouter</Link>
         <h1 className="text-center my-4">Alyra Gradients</h1>
         <Gradients />
       </main>

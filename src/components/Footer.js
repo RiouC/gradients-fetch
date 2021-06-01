@@ -1,9 +1,14 @@
-const Footer = () => {
-  return (
-    <footer className="bg-dark text-white text-center p-3 mt-auto">
-      Made with Love for Alyra
-    </footer>
-  )
-}
+import { useGlobalSettings } from "../hook/useGlobalSettings";
 
-export default Footer
+const Footer = () => {
+  const { darkMode } = useGlobalSettings();
+  const darkModeClass = darkMode ? "border-top border-white" : "";
+  return (
+    <footer className={`text-center text-white bg-dark py-3 mt-auto ${darkModeClass}`}>
+      Made with <span className="text-danger">&hearts;</span> by Solène,
+      Christophe & Raphaël for <b>Alyra</b>
+    </footer>
+  );
+};
+
+export default Footer;

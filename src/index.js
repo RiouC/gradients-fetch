@@ -5,18 +5,21 @@ import "./index.css"
 import App from "./App"
 import * as serviceWorker from "./serviceWorker"
 import { GradientContextProvider } from "./context/GradientContext"
+import { GlobalSettingsContextProvider } from "./context/GlobalSettingsContext"
 import {
   BrowserRouter as Router
 } from "react-router-dom";
 
 ReactDOM.render(
   <React.StrictMode>
-   
-    <GradientContextProvider>
-    <Router>
-    <App />
-    </Router>
-    </GradientContextProvider>
+
+    <GlobalSettingsContextProvider>
+      <GradientContextProvider>
+        <Router>
+          <App />
+        </Router>
+      </GradientContextProvider>
+    </GlobalSettingsContextProvider>
     
   </React.StrictMode>,
   document.getElementById("root")

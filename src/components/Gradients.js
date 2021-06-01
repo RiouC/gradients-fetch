@@ -1,6 +1,6 @@
-import React, { Fragment } from "react"
-import GradientsList from "./GradientsList"
-import GradientsSelect from "./GradientsSelect"
+import React, { Fragment } from "react";
+import GradientsList from "./GradientsList";
+import GradientsSelect from "./GradientsSelect";
 
 const Gradients = () => {
   return (
@@ -8,7 +8,7 @@ const Gradients = () => {
       <GradientsSelect />
       <GradientsList />
     </Fragment>
-  )
-}
+  );
+};
 
-export default Gradients
+export default Gradients;
